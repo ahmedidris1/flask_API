@@ -1,3 +1,4 @@
+from os import environ
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -26,4 +27,5 @@ api.add_resource(Stores_list, '/stores')
 
 if __name__ == '__main__':
     db.init_app(app)
+    port = environ.get('port', 5000)
     app.run(port=5000, debug=True)
